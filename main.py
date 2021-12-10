@@ -17,5 +17,5 @@ async def ping(ctx):
 
     await ctx.send('.', view= view)
 
-from config import TOKEN
-Sally.run(TOKEN)
+# from config import TOKEN
+# Sally.run(TOKEN)
