@@ -10,6 +10,12 @@ Sally = commands.Bot(command_prefix = '*',
                      status = discord.Status.online
                     )
 
+@Sally.event
+async def on_ready():
+    from users import TOFU 
+    Tofu = discord.utils.find(lambda Tofu: Tofu.id == TOFU, Sally.guilds[0].members)
+    await Tofu.send('Awating orders master')
+
 # from Cogs.DebugCog import DebugCog
 # Sally.add_cog(DebugCog(Sally))
 
