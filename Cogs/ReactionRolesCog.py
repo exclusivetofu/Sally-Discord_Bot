@@ -24,12 +24,13 @@ class ReactRolesCog(commands.Cog):
 
         def SearchRoles( RoleToSearchFor ):
             Result = discord.utils.find(lambda r: r.name == RoleToSearchFor, 
-                                        Self.Bot.guilds[0].roles
+                                        Bot.guilds[0].roles
                                         )
             return Result
 
         @Bot.event
         async def on_raw_reaction_add(Payload):
+
             with open( 'Data/CogData/PronounRolesMsgID.txt' ) as File:
                 PronounRolesMessage = int(File.read())
             with open( 'Data/CogData/AgeRolesMsgID.txt' )     as File:
@@ -39,7 +40,7 @@ class ReactRolesCog(commands.Cog):
             with open( 'Data/CogData/PingsRolesMsgID.txt' )   as File:
                 PingsRolesMessage   = int(File.read())
             with open( 'Data/CogData/GamerRolesMsgID.txt' )   as File:
-                GamerRolesMessage   = int(File.read)()
+                GamerRolesMessage   = int(File.read())
 
             Member     = Payload.member
             MessageID  = Payload.message_id
@@ -116,6 +117,7 @@ class ReactRolesCog(commands.Cog):
         
         @Bot.event
         async def on_raw_reaction_remove(Payload):
+
             with open( 'Data/CogData/PronounRolesMsgID.txt' ) as File:
                 PronounRolesMessage = int(File.read())
             with open( 'Data/CogData/AgeRolesMsgID.txt' )     as File:
@@ -205,7 +207,7 @@ class ReactRolesCog(commands.Cog):
                                          Self.Bot.guilds[0].channels
                                          )
 
-        with open('Data/CogData/PronounsRoleMenu.txt') as MenuText:
+        with open('Data/CogData/PronounsRoleMenu.txt', encoding='UTF-8') as MenuText:
             Menu = await RoleChannel.send(MenuText.read())
         with open( 'Data/CogData/PronounRolesMsgID.txt', 'w' ) as File:
             File.write(str(Menu.id))
@@ -214,7 +216,7 @@ class ReactRolesCog(commands.Cog):
             await Menu.add_reaction(Self.Sel2)
             await Menu.add_reaction(Self.Sel3)
         
-        with open('Data/CogData/AgeRoleMenu.txt') as MenuText:
+        with open('Data/CogData/AgeRoleMenu.txt', encoding='UTF-8') as MenuText:
             Menu = await RoleChannel.send(MenuText.read())
         with open( 'Data/CogData/AgeRolesMsgID.txt', 'w' ) as File:
             File.write(str(Menu.id))
@@ -223,7 +225,7 @@ class ReactRolesCog(commands.Cog):
             await Menu.add_reaction(Self.Sel2)
             await Menu.add_reaction(Self.Sel3)
 
-        with open('Data/CogData/HobbiesRoleMenu.txt') as MenuText:
+        with open('Data/CogData/HobbiesRoleMenu.txt', encoding='UTF-8') as MenuText:
             Menu = await RoleChannel.send(MenuText.read())
         with open( 'Data/CogData/HobbieRolesMsgID.txt', 'w' ) as File:
             File.write(str(Menu.id))
@@ -232,7 +234,7 @@ class ReactRolesCog(commands.Cog):
             await Menu.add_reaction(Self.Sel2)
             await Menu.add_reaction(Self.Sel3)
 
-        with open('Data/CogData/PingsRoleMenu.txt') as MenuText:
+        with open('Data/CogData/PingsRoleMenu.txt', encoding='UTF-8') as MenuText:
             Menu = await RoleChannel.send(MenuText.read())
         with open( 'Data/CogData/PingsRolesMsgID.txt', 'w' ) as File:
             File.write(str(Menu.id))
@@ -243,7 +245,7 @@ class ReactRolesCog(commands.Cog):
             await Menu.add_reaction(Self.Sel4)
             await Menu.add_reaction(Self.Sel5)
 
-        with open('Data/CogData/GamerRoleMenu.txt') as MenuText:
+        with open('Data/CogData/GamerRoleMenu.txt', encoding='UTF-8') as MenuText:
             Menu = await RoleChannel.send(MenuText.read())
         with open( 'Data/CogData/GamerRolesMsgID.txt', 'w' ) as File:
             File.write(str(Menu.id))
