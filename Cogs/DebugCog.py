@@ -1,4 +1,6 @@
+import discord
 from discord.ext import commands
+from discord.ui import Button, View
 
 class DebugCog(commands.Cog):
     def __init__(Self, Bot):
@@ -15,11 +17,13 @@ class DebugCog(commands.Cog):
             await Context.send('Debug has been set to true.')
 
     @commands.command()
-    async def ping(Self, Context):
-        if Self.DebugFlag:
-            await Context.send('Pong!')
-        else:
-            await Context.send('My debug flag must be set for this command')
+    async def ping(ctx):
+        button1 = Button(label = 'SUCK', style=discord.ButtonStyle.green)
+        button2 = Button(label = 'MY'  , style=discord.ButtonStyle.blurple)
+        button3 = Button(style = discord.ButtonStyle.red, emoji = '🍆')
+        view = View(button1, button2, button3)
+
+        await ctx.send('.', view = view)
 
     @commands.command()
     async def react(Self, Context):
