@@ -6,12 +6,12 @@ SallysIntents = discord.Intents.all()
 Doing = discord.Game(name = "Halo Infinite")
 Sally = commands.Bot(command_prefix = '*',
                      intents = SallysIntents,
-                     activity = Doing,
                      status = discord.Status.online
                     )
 
 @Sally.event
 async def on_ready():
+    await Sally.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="old Pewdiepie videos"))
     from users import TOFU 
     Tofu = discord.utils.find(lambda Tofu: Tofu.id == TOFU, Sally.guilds[0].members)
     await Tofu.send('Awating orders master')
