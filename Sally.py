@@ -22,8 +22,8 @@ async def on_ready():
 from Cogs.ReactionRolesCog import ReactRolesCog
 Sally.add_cog(ReactRolesCog(Sally))
 
-# from Cogs.MemVerCog import MemverCog
-# Sally.add_cog(MemverCog(Sally))
+from Cogs.MemVerCog import MemverCog
+Sally.add_cog(MemverCog(Sally))
 
 # from Cogs.RequestCog import RequestCog
 # Sally.add_cog(RequestCog(Sally))
