@@ -11,7 +11,7 @@ class ServerTime(commands.Cog):
     def cog_unload(self):
         self.update.cancel()
 
-    @tasks.loop(seconds=60.0)
+    @tasks.loop(seconds=15.0)
     async def update(self):
 
         if len(self.bot.guilds) == 0:
