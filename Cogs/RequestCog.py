@@ -12,8 +12,8 @@ class RequestCog(commands.Cog):
         Request = ' '.join(Arguments)
 
         with open('Data/RequestLog.txt', 'a') as File:
-            File.write('<' + str(Today) + '> ' + Context.author.display_name + ' sent a request: ' + Request + '\n')
-            print('<' + str(Today) + '> ' + Context.author.display_name + ' sent a request: ' + Request)
+            File.write('<' + str(Today) + '> From ' + Context.author.display_name + ': ' + Request + '\n')
+            print('<' + str(Today) + '> From ' + Context.author.display_name + ': ' + Request)
     
     @commands.command()
     async def listRequests(Self, Context):

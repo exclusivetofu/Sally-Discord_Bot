@@ -1,6 +1,6 @@
 token.txt
 __pycache__/
-pycord/
 users.py
 .replit
 Logs/
+pycord/
