@@ -33,11 +33,8 @@ Sally.add_cog(MemverCog(Sally))
 from Cogs.RequestCog import RequestCog
 Sally.add_cog(RequestCog(Sally))
 
-<<<<<<< HEAD
-=======
 from Cogs.MorningAnccCog import MorningAnccCog
 Sally.add_cog(MorningAnccCog(Sally))
 
->>>>>>> b5a69801bbf520e414d94270ae21ec490aafd75d
 with open('token.txt') as File:
     Sally.run(File.read())
