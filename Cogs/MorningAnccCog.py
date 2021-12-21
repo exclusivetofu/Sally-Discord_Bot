@@ -9,9 +9,9 @@ class MorningAnccCog(commands.Cog):
         print('Anouncements cog started')
 
     def cog_unload(self):
+        # print('test')
         self.update.cancel()
 
     @tasks.loop(seconds=3.0)
     async def update(self):
-        now = datetime.now().hour
-        print(now)
+        print('test')
