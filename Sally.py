@@ -16,6 +16,7 @@ async def on_ready():
     from users import TOFU 
     Tofu = discord.utils.find(lambda Tofu: Tofu.id == TOFU, Sally.guilds[0].members)
     await Tofu.send('Awating orders master')
+    print("ready")
     # timeChat = discord.utils.find(lambda c: c.id == 920933193383813181, Sally.guilds[0].channels)
     # from Cogs.ServerTimeCog import ServerTime
     # Sally.add_cog(ServerTime(Sally, timeChat))
@@ -32,5 +33,11 @@ Sally.add_cog(MemverCog(Sally))
 from Cogs.RequestCog import RequestCog
 Sally.add_cog(RequestCog(Sally))
 
+<<<<<<< HEAD
+=======
+from Cogs.MorningAnccCog import MorningAnccCog
+Sally.add_cog(MorningAnccCog(Sally))
+
+>>>>>>> b5a69801bbf520e414d94270ae21ec490aafd75d
 with open('token.txt') as File:
     Sally.run(File.read())

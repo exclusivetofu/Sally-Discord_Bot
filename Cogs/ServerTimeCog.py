@@ -18,7 +18,7 @@ class ServerTime(commands.Cog):
             print('Time Channel Not Ready')
             return
         
-        now = datetime.now()
+        now = datetime.now.()
         time = now.strftime("local-time-%H-%M")
         print(time)
         await self.timeChat.edit(name=time)

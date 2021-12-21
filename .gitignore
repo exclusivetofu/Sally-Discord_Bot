@@ -2,4 +2,8 @@ token.txt
 users.py
 **/__pycache__
 Logs/
+<<<<<<< HEAD
 nohup.out
+=======
+/pycord
+>>>>>>> b5a69801bbf520e414d94270ae21ec490aafd75d
