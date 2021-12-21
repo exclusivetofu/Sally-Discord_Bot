@@ -32,7 +32,5 @@ Sally.add_cog(MemverCog(Sally))
 from Cogs.RequestCog import RequestCog
 Sally.add_cog(RequestCog(Sally))
 
-
-
 with open('token.txt') as File:
     Sally.run(File.read())
