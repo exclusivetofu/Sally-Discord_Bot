@@ -1,6 +1,5 @@
 from discord.ext import commands
 from datetime import date
-# from ursina import *
 
 class RequestCog(commands.Cog):
     def __init__( Self, Bot):
@@ -11,7 +10,7 @@ class RequestCog(commands.Cog):
         Today = date.today()
         Request = ' '.join(Arguments)
 
-        with open('Data/RequestLog.txt', 'a') as File:
+        with open('Logs/Requests.txt', 'a') as File:
             File.write('<' + str(Today) + '> From ' + Context.author.display_name + ': ' + Request + '\n')
             print('<' + str(Today) + '> From ' + Context.author.display_name + ': ' + Request)
     
@@ -19,7 +18,7 @@ class RequestCog(commands.Cog):
     async def listRequests(Self, Context):
         if not Context.author.id ==  456489836614909963: return
 
-        with open('Data/RequestLog.txt') as File:
+        with open('Logs/Requests.txt') as File:
             Reqs = File.read()
             if Reqs == '':
                 return await Context.send('No requests to show')
@@ -29,5 +28,5 @@ class RequestCog(commands.Cog):
     async def clearRequests(Self, Context):
         if not Context.author.id ==  456489836614909963: return
 
-        with open('Data/RequestLog.txt', 'r+') as File:
+        with open('Logs/Requests.txt', 'r+') as File:
             File.truncate(0)

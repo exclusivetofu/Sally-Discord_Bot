@@ -17,14 +17,10 @@ class DebugCog(commands.Cog):
             await Context.send('Debug has been set to true.')
 
     @commands.command()
-    async def ping(ctx):
+    async def ping(Self, context):
+        # Ping command that also tests button functionality
         button1 = Button(label = 'SUCK', style=discord.ButtonStyle.green)
         button2 = Button(label = 'MY'  , style=discord.ButtonStyle.blurple)
         button3 = Button(style = discord.ButtonStyle.red, emoji = '🍆')
         view = View(button1, button2, button3)
-
-        await ctx.send('.', view = view)
-
-    @commands.command()
-    async def react(Self, Context):
-        ...
+        await context.send('.', view = view)

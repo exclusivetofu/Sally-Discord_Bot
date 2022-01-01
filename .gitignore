@@ -1,5 +1,12 @@
 token.txt
-__pycache__/
 users.py
+<<<<<<< HEAD
 .replit
 .log
+=======
+**/__pycache__
+Logs/
+/pycord
+Data/
+MorningAnnouncment.txt
+>>>>>>> 1e04f91a1fe6435055413b18500cec1f99a0e04d
