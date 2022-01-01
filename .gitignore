@@ -3,3 +3,4 @@ users.py
 **/__pycache__
 Logs/
 /pycord
+Data/
