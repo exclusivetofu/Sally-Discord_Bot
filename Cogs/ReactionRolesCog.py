@@ -30,9 +30,6 @@ class ReactRolesCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(Self, Payload):
-
-        print('raw reaction called')
-
         with open( 'Data/CogData/PronounRolesMsgID.txt' ) as File:
             PronounRolesMessage = int(File.read())
         with open( 'Data/CogData/AgeRolesMsgID.txt' )     as File:
@@ -49,14 +46,11 @@ class ReactRolesCog(commands.Cog):
         EmojiName  = Payload.emoji.name
 
         if Member.display_name == 'Sally':
-            print('passed bot check')
             return
 
         if MessageID == PronounRolesMessage:
-            print('role type pronoun')
             if EmojiName == Self.Sel1:
                 await Member.add_roles(Self.SearchRoles('He/Him'))
-                print('gave he/him role')
             if EmojiName == Self.Sel2:
                 await Member.add_roles(Self.SearchRoles('She/Her'))
             if EmojiName == Self.Sel3:
@@ -122,9 +116,6 @@ class ReactRolesCog(commands.Cog):
         
     @commands.Cog.listener()
     async def on_raw_reaction_remove(Self, Payload):
-        
-        print('raw reaction called')
-
         with open( 'Data/CogData/PronounRolesMsgID.txt' ) as File:
             PronounRolesMessage = int(File.read())
         with open( 'Data/CogData/AgeRolesMsgID.txt' )     as File:
@@ -143,10 +134,8 @@ class ReactRolesCog(commands.Cog):
         EmojiName  = Payload.emoji.name
 
         if MessageID == PronounRolesMessage:
-            print('role type pro')
             if EmojiName == Self.Sel1:
                 await Member.remove_roles(Self.SearchRoles('He/Him'))
-                print('removed he him role')
             if EmojiName == Self.Sel2:
                 await Member.remove_roles(Self.SearchRoles('She/Her'))
             if EmojiName == Self.Sel3:
