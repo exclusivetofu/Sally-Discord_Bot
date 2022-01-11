@@ -27,5 +27,8 @@ Sally.add_cog(RequestCog(Sally))
 from Cogs.MorningAnccCog import MorningAnccCog
 Sally.add_cog(MorningAnccCog(Sally))
 
+from Cogs.ModerationCog import ModerationCog
+Sally.add_cog(ModerationCog(Sally))
+
 with open('token.txt') as File:
     Sally.run(File.read())
