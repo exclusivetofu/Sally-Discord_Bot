@@ -1,6 +1,8 @@
+from email.policy import default
 import discord
 from discord.ext import commands
 from discord.ui import Button, View
+from discord.commands import permissions
 
 class DebugCog(commands.Cog):
     def __init__(Self, Bot):
@@ -24,3 +26,21 @@ class DebugCog(commands.Cog):
         button3 = Button(style = discord.ButtonStyle.red, emoji = '🍆')
         view = View(button1, button2, button3)
         await context.send('.', view = view)
+
+    @commands.slash_command(guild_ids = [776972325010407454], default_permission = False)
+    @permissions.is_user(456489836614909963)
+    async def echo(
+                    self,
+                    context,
+                    content: discord.commands.Option( str, 'what to say ',    required = True),
+                    channel: discord.commands.Option( str, 'Time to set to ', required = False, default = 803104357221793812),
+                   ):
+        channel = discord.utils.find(lambda c: c.id == int(channel),
+                                         self.Bot.guilds[0].channels
+                                         )
+        await  channel.trigger_typing()
+        await  channel.send(content)
+
+        await context.respond(f'Echo message sent to {channel.name}')
+
+    

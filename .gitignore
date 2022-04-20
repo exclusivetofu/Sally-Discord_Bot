@@ -1,9 +1,4 @@
 token.txt
 users.py
-.replit
-.log
 **/__pycache__
-Logs/
-/pycord
-/Data
-MorningAnnouncment.txt
+**.tofu

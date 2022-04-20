@@ -6,7 +6,7 @@ Sally = commands.Bot(command_prefix = '*', intents = SallysIntents, status = dis
 
 @Sally.event
 async def on_ready():
-    await Sally.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Counter Strike: Global Offensive"))
+    await Sally.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Super Smash Bros. Melee"))
     from users import TOFU 
     Tofu = discord.utils.find(lambda Tofu: Tofu.id == TOFU, Sally.guilds[0].members)
     await Tofu.send('Awating orders master')
@@ -29,6 +29,15 @@ Sally.add_cog(MorningAnccCog(Sally))
 
 from Cogs.ModerationCog import ModerationCog
 Sally.add_cog(ModerationCog(Sally))
+
+from Cogs.MIneControlCog import MineControl
+Sally.add_cog(MineControl(Sally))
+
+# from Cogs.MusicCog import MusicCog
+# ally.add_cog(MusicCog(Sally))
+
+from Cogs.CommunityCog import CommunityCog
+Sally.add_cog(CommunityCog(Sally))
 
 with open('token.txt') as File:
     Sally.run(File.read())

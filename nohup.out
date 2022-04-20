@@ -1,0 +1,30 @@
+ready
+ready
+ready
+ready
+ready
+ready
+ready
+Ignoring exception in command None:
+discord.ext.commands.errors.CommandNotFound: Command "*WHITE" is not found
+ready
+Ignoring exception in command None:
+discord.ext.commands.errors.CommandNotFound: Command "flop*" is not found
+ready
+ready
+Traceback (most recent call last):
+  File "/home/tofu/Sally-Discord_Bot/Sally.py", line 33, in <module>
+    from Cogs.MIneControlCog import MineControl
+  File "/home/tofu/Sally-Discord_Bot/Cogs/MIneControlCog.py", line 12
+    @permissions.
+                 ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "/home/tofu/Sally-Discord_Bot/Sally.py", line 39, in <module>
+    from Cogs.CommunityCog import CommunityCog
+  File "/home/tofu/Sally-Discord_Bot/Cogs/CommunityCog.py", line 31
+    embed = discord.Embed(title = context.author.display_name ' has created a poll', description = name, color=0xff00ff)
+                                                              ^
+SyntaxError: invalid syntax
+ready
+ready
