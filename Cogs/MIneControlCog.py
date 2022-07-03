@@ -83,7 +83,7 @@ class MineControl(commands.Cog):
                 file = discord.File("server-icon.png", filename="image.png")
                 embed.set_thumbnail(url="attachment://image.png")
                 await messageMember.send(file = file, embed = embed)
-
+1
                 return await context.respond('Invitation Sent')
 
             if option == 'Remove':

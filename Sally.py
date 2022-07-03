@@ -33,6 +33,9 @@ Sally.add_cog(ModerationCog(Sally))
 from Cogs.MIneControlCog import MineControl
 Sally.add_cog(MineControl(Sally))
 
+from Cogs.kasaControl import KasaControl
+Sally.add_cog(KasaControl(Sally))
+
 # from Cogs.MusicCog import MusicCog
 # ally.add_cog(MusicCog(Sally))
 
