@@ -8,7 +8,7 @@ class MineControl(commands.Cog):
         self.bot = bot
 
     @commands.slash_command(guild_ids = [776972325010407454], default_permission = False, discription = 'A Command to set the Minecraft server time')
-    @permissions.has_any_role("MC Mod")
+    @discord.default_permissions( administrator=True )  
     async def timeset(
                     self,
                     context,
@@ -33,7 +33,7 @@ class MineControl(commands.Cog):
         await context.respond(f'Set time in minecraft server to {time}')
 
     @commands.slash_command(guild_ids = [776972325010407454], default_permission = False)
-    @permissions.has_any_role("MC Mod")
+    @discord.default_permissions( administrator=True )  
     async def weatherset(
                     self,
                     context,
@@ -51,7 +51,7 @@ class MineControl(commands.Cog):
         await context.respond(f'Set weather in minecraft server to {weather}')
 
     @commands.slash_command(guild_ids = [776972325010407454], default_permission = False)
-    @permissions.has_any_role("MC Mod")
+    @discord.default_permissions( administrator=True )  
     async def whitelist(
                     self,
                     context,
@@ -83,7 +83,7 @@ class MineControl(commands.Cog):
                 file = discord.File("server-icon.png", filename="image.png")
                 embed.set_thumbnail(url="attachment://image.png")
                 await messageMember.send(file = file, embed = embed)
-1
+
                 return await context.respond('Invitation Sent')
 
             if option == 'Remove':

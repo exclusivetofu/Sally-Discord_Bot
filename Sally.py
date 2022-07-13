@@ -12,8 +12,8 @@ async def on_ready():
     await Tofu.send('Awating orders master')
     print("ready")
 
-from Cogs.DebugCog import DebugCog
-Sally.add_cog(DebugCog(Sally))
+#from Cogs.DebugCog import DebugCog
+#Sally.add_cog(DebugCog(Sally))
 
 from Cogs.ReactionRolesCog import ReactRolesCog
 Sally.add_cog(ReactRolesCog(Sally))

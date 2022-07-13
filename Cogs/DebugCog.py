@@ -1,8 +1,8 @@
-from email.policy import default
 import discord
 from discord.ext import commands
-from discord.ui import Button, View
 from discord.commands import permissions
+from discord.ui import Button, View
+
 
 class DebugCog(commands.Cog):
     def __init__(Self, Bot):
@@ -27,8 +27,8 @@ class DebugCog(commands.Cog):
         view = View(button1, button2, button3)
         await context.send('.', view = view)
 
-    @commands.slash_command(guild_ids = [776972325010407454], default_permission = False)
-    @permissions.is_user(456489836614909963)
+    @commands.slash_command(guild_ids = [776972325010407454])
+    @discord.default_permissions( administrator=True )   
     async def echo(
                     self,
                     context,
@@ -42,5 +42,3 @@ class DebugCog(commands.Cog):
         await  channel.send(content)
 
         await context.respond(f'Echo message sent to {channel.name}')
-
-    

@@ -8,7 +8,7 @@ class ModerationCog(commands.Cog):
         self.bot = bot
 
     @commands.slash_command(guild_ids = [776972325010407454], default_permission = False)
-    @permissions.has_any_role("Admin")
+    @discord.default_permissions( administrator=True )  
     async def purge(
                     self,
                     context,
@@ -18,7 +18,7 @@ class ModerationCog(commands.Cog):
         await context.respond(f'Deleted {len(deleted)} message(s)')
 
     @commands.slash_command(guild_ids = [776972325010407454])
-    @permissions.has_any_role("OwOner")
+    @discord.default_permissions( administrator=True )  
     async def changestat(self, context, type: discord.commands.Option(str, required = True, choices = ['Playing', 'Watching', 'Streaming', 'clear']),
                          activity: discord.commands.Option(str, required = True)):
         

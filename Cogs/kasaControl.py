@@ -10,7 +10,7 @@ class KasaControl(commands.Cog):
         self.bot = bot
 
     @commands.slash_command(guild_ids = [776972325010407454])
-    @permissions.has_any_role("OwOner")
+    @discord.default_permissions( administrator=True )  
     async def kasa_test(self, context):
         shelf = SmartBulb("192.168.1.194")
         overhead1 = SmartBulb("192.168.1.35")
