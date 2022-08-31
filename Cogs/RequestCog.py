@@ -10,23 +10,25 @@ class RequestCog(commands.Cog):
         Today = date.today()
         Request = ' '.join(Arguments)
 
-        with open('Logs/Requests.txt', 'a') as File:
+        with open('Data/CogData/RequestLog.log', 'a') as File:
             File.write('<' + str(Today) + '> From ' + Context.author.display_name + ': ' + Request + '\n')
             print('<' + str(Today) + '> From ' + Context.author.display_name + ': ' + Request)
+
+        await Context.reply('Request added to stack.')
     
     @commands.command()
     async def listRequests(Self, Context):
         if not Context.author.id ==  456489836614909963: return
 
-        with open('Logs/Requests.txt') as File:
+        with open('Data/CogData/RequestLog.log') as File:
             Reqs = File.read()
             if Reqs == '':
-                return await Context.send('No requests to show')
-            await Context.send(Reqs)
+                return await Context.reply('No requests to show')
+            await Context.reply(Reqs)
 
     @commands.command()
     async def clearRequests(Self, Context):
         if not Context.author.id ==  456489836614909963: return
 
-        with open('Logs/Requests.txt', 'r+') as File:
+        with open('Data/Logs/Requests.txt', 'r+') as File:
             File.truncate(0)
