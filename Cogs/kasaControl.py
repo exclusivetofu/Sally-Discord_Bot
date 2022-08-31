@@ -1,35 +1,31 @@
 import discord
 from discord.ext import commands
-from discord.commands import permissions
 
-import asyncio
 from kasa import SmartBulb
 
 class KasaControl(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.shelf = SmartBulb("192.168.1.196")
+        self.overhead1 = SmartBulb("192.168.1.37")
+        self.overhead2 = SmartBulb("192.168.1.246")
 
     @commands.slash_command(guild_ids = [776972325010407454])
     @discord.default_permissions( administrator=True )  
-    async def kasa_test(self, context):
-        shelf = SmartBulb("192.168.1.194")
-        overhead1 = SmartBulb("192.168.1.35")
-        overhead2 = SmartBulb("192.168.1.244")
+    async def lights(self, context):
+        
+        await self.shelf.update()
+        await self.overhead1.update()
+        await self.overhead2.update()
 
-        await shelf.update()
-        await overhead1.update()
-        await overhead2.update()
+        if self.overhead1.light_state['on_off'] == 0 and self.overhead2.light_state['on_off'] == 0 and self.shelf.light_state['on_off'] == 0:
+            await self.shelf.turn_on()
+            await self.overhead1.turn_on()
+            await self.overhead2.turn_on()
+            await context.respond("Turned on Tofu's Bedroom lights")
 
-        print(shelf.alias)
-        print(overhead1.alias)
-        print(overhead2.alias)
-
-        print(shelf.emeter_realtime)
-        print(overhead1.emeter_realtime)
-        print(overhead2.emeter_realtime)
-
-        await shelf.turn_off()
-        await overhead1.turn_off()
-        await overhead2.turn_off()
-
-        await context.respond("Turned off Tofu's Bedroom lights")
+        if self.overhead1.light_state['on_off'] == 1 and self.overhead2.light_state['on_off'] == 1 and self.shelf.light_state['on_off'] == 1:
+            await self.shelf.turn_off()
+            await self.overhead1.turn_off()
+            await self.overhead2.turn_off()
+            await context.respond("Turned off Tofu's Bedroom lights")
