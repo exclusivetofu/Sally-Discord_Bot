@@ -11,7 +11,7 @@ class RequestCog(commands.Cog):
         Request = ' '.join(Arguments)
 
         if Request == "":
-            await Context.replay('you need to add a request : *request What ever you want to be requested')
+            await Context.reply('you need to add a request : *request What ever you want to be requested')
             return
 
         with open('Data/CogData/RequestLog.log', 'a') as File:
