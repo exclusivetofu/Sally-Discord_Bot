@@ -1,6 +1,6 @@
 from discord.ext import tasks, commands
 import discord
-import datetime as dt
+import time
 
 class MorningAnccCog(commands.Cog):
     def __init__(self, bot):
@@ -12,25 +12,23 @@ class MorningAnccCog(commands.Cog):
     def cog_unload(self):
         self.update.cancel()
 
-    @tasks.loop(seconds=5)
+    @tasks.loop(seconds=45)
     async def update(self):
         with open('MorningAnnouncment.txt') as File:
             self.announcements = File.read()
 
-        hour   = dt.datetime.now().hour
-        minute = dt.datetime.now().minute
-        second = dt.datetime.now().second
+        currentTime = str(time.strftime("%H:%M"))
+        print(currentTime)
 
-        hourToCheck   = 8
-        minToCheck    = 46
-        secondToCheck = 20
+        alertTime = "10:45"
         
         self.canSend = False
 
-        if hour == hourToCheck and minute == minToCheck and second == secondToCheck:
+        if currentTime == alertTime:
             self.canSend = True
-            if self.canSend:
-                from users import TOFU
-                Tofu = discord.utils.find(lambda Tofu: Tofu.id == TOFU, self.bot.guilds[0].members)
-                await Tofu.send(self.announcements)
-                self.canSend = False
+            
+        if self.canSend:
+            from users import TOFU
+            billboard = discord.utils.find(lambda billboard: billboard.id == 808100225721303041, self.bot.guilds[0].channels)
+            await billboard.send(self.announcements)
+            self.canSend = False
