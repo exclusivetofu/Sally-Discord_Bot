@@ -13,10 +13,13 @@ class KasaControl(commands.Cog):
     @commands.slash_command(guild_ids = [776972325010407454])
     @discord.default_permissions( administrator=True )  
     async def lights(self, context):
-        
-        await self.shelf.update()
-        await self.overhead1.update()
-        await self.overhead2.update()
+
+        try:
+            await self.shelf.update()
+            await self.overhead1.update()
+            await self.overhead2.update()
+        except:
+            await context.send("Status update failed, check if devices are online.")
 
         if self.overhead1.light_state['on_off'] == 0 and self.overhead2.light_state['on_off'] == 0 and self.shelf.light_state['on_off'] == 0:
             await self.shelf.turn_on()
