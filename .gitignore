@@ -3,5 +3,6 @@ users.py
 **/__pycache__
 **.tofu
 **/polls
-**/Data
+**/Data/
 **/MemberInfo
+MorningAnnouncment.txt
