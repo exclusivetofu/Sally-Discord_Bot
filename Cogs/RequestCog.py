@@ -10,6 +10,10 @@ class RequestCog(commands.Cog):
         Today = date.today()
         Request = ' '.join(Arguments)
 
+        if Request == "":
+            await Context.replay('you need to add a request : *request What ever you want to be requested')
+            return
+
         with open('Data/CogData/RequestLog.log', 'a') as File:
             File.write('<' + str(Today) + '> From ' + Context.author.display_name + ': ' + Request + '\n')
             print('<' + str(Today) + '> From ' + Context.author.display_name + ': ' + Request)
@@ -30,5 +34,5 @@ class RequestCog(commands.Cog):
     async def clearRequests(Self, Context):
         if not Context.author.id ==  456489836614909963: return
 
-        with open('Data/Logs/Requests.txt', 'r+') as File:
+        with open('Data/Logs/Requests.log', 'r+') as File:
             File.truncate(0)
