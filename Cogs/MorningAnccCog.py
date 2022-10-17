@@ -35,6 +35,5 @@ class MorningAnccCog(commands.Cog):
 
     @commands.command()
     async def peekAnnc(self, Context):
-        from users import TOFU
-        Tofu  = discord.utils.find(lambda Tofu: Tofu.id == TOFU, self.bot.guilds[0].members)
-        Tofu.send(self.announcements)
+        billboard = discord.utils.find(lambda billboard: billboard.id == 1003707714549067847, self.bot.guilds[0].channels)
+        await billboard.send(self.announcements)
