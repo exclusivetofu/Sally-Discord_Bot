@@ -34,5 +34,5 @@ class RequestCog(commands.Cog):
     async def clearRequests(Self, Context):
         if not Context.author.id ==  456489836614909963: return
 
-        with open('Data/Logs/Requests.log', 'r+') as File:
+        with open('Data/CogData/RequestLog.log', 'r+') as File:
             File.truncate(0)
