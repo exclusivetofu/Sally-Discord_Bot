@@ -37,3 +37,8 @@ class MorningAnccCog(commands.Cog):
     async def peekAnnc(self, Context):
         billboard = discord.utils.find(lambda billboard: billboard.id == 1003707714549067847, self.bot.guilds[0].channels)
         await billboard.send(self.announcements)
+    
+    @commands.command()
+    async def forceAnnc(self, Context):
+        billboard = discord.utils.find(lambda billboard: billboard.id == 808100225721303041, self.bot.guilds[0].channels)
+        await billboard.send(self.announcements)
