@@ -20,7 +20,7 @@ class MorningAnccCog(commands.Cog):
         currentTime = str(time.strftime("%H:%M"))
         print(currentTime)
 
-        alertTime = "10:45"
+        alertTime = "8:30"
         
         self.canSend = False
 
